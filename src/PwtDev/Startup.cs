@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PwtDev.Models;
 
 namespace PwtDev
 {
@@ -29,6 +27,10 @@ namespace PwtDev
         {
             // Add framework services.
             services.AddMvc();
+
+            // Add Database Context
+            var connection = @"Server=sparxvm\CCodes;Database=PwtDev;Trusted_Connection=True;";
+            services.AddDbContext<PwtContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

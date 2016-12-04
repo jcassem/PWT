@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Project>
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="row">
+    <h2>Projects</h2>
+</div>
+
+<div class="row">
+    <p>
+        <a asp-controller="Project" asp-action="Create">Create New</a>
+    </p>
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Details</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr class="clickable-row" data-href="/Project?ProjectID=@item.ProjectID">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Details)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h3>There are currently no available projects.</h3>
+    }
+</div>

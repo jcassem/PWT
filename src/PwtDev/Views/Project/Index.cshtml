@@ -1,0 +1,24 @@
+﻿@model Project
+@{
+    ViewData["Title"] = "Project";
+}
+
+<div class="row">
+    <h2>Project</h2>
+</div>
+<div class="row">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Details" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Details" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+</div>
